@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales & Billing Assistant</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Support assistant</p>
+          <h1>Sales & Billing Chatbot</h1>
+        </div>
+      </header>
+
+      <main class="chat-panel">
+        <div id="chatMessages" class="chat-messages" aria-live="polite">
+          <div class="message bot">
+            <p>Hello! I can help with sales questions, pricing, and billing support. Ask me about plans, invoices, refunds, or payments.</p>
+          </div>
+        </div>
+
+        <form id="chatForm" class="chat-form">
+          <input
+            id="userInput"
+            type="text"
+            placeholder="Ask about pricing, invoices, refunds, demos..."
+            aria-label="Type your message"
+            autocomplete="off"
+          />
+          <button type="submit">Send</button>
+        </form>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
