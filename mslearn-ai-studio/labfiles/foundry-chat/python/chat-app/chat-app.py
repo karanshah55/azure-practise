@@ -25,6 +25,8 @@ def main():
             DefaultAzureCredential(), "https://ai.azure.com/.default"
         )
 
+        
+
         openai_client = OpenAI(
 
             base_url=azure_openai_endpoint,
