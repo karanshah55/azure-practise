@@ -19,7 +19,8 @@ async def main():
         azure_openai_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
         model_deployment = os.getenv("MODEL_DEPLOYMENT")
 
-        # Initialize an async OpenAI client
+        # Initialize an async OpenAI client - commneting my second comment
+        
 
         
 

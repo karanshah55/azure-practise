@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Support Systems Testbench</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Support systems testbench home">
+      <span class="brand-mark">ST</span>
+      <span><strong>Support systems</strong><small>AI testbench</small></span>
+    </a>
+    <div class="topbar-right">
+      <div class="provider-state" aria-live="polite">
+        <span class="status-dot"></span>
+        <span id="provider-label">Loading provider</span>
+      </div>
+      <button class="button button-primary" id="run-evaluations" type="button">
+        <span aria-hidden="true">&#9654;</span> Run evaluation suite
+      </button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="domain-rail" aria-label="Support domains">
+      <div class="rail-heading"><span class="eyebrow">01 / DOMAIN</span><h1>Test area</h1></div>
+      <div class="domain-list" role="group" aria-label="Choose a support domain">
+        <button class="domain-button is-active" data-domain="hr" type="button"><span class="domain-index">A</span><span>People &amp; HR</span><span class="domain-arrow">&#8599;</span></button>
+        <button class="domain-button" data-domain="it" type="button"><span class="domain-index">B</span><span>IT services</span><span class="domain-arrow">&#8599;</span></button>
+        <button class="domain-button" data-domain="helpdesk" type="button"><span class="domain-index">C</span><span>Helpdesk</span><span class="domain-arrow">&#8599;</span></button>
+      </div>
+
+      <section class="scenario-section" aria-labelledby="scenario-heading">
+        <div class="section-heading"><span class="eyebrow">02 / CASE FILES</span><span class="count" id="scenario-count">0</span></div>
+        <h2 id="scenario-heading">Evaluation prompts</h2>
+        <div class="scenario-list" id="scenario-list" aria-live="polite"></div>
+      </section>
+
+      <p class="rail-note">Synthetic scenarios only. No real employee records, credentials, or tickets.</p>
+    </aside>
+
+    <section class="chat-workspace" aria-labelledby="chat-heading">
+      <div class="chat-heading-row">
+        <div>
+          <span class="eyebrow" id="active-domain-label">PEOPLE &amp; HR / SANDBOX</span>
+          <h2 id="chat-heading">Conversation lab</h2>
+        </div>
+        <button class="button button-quiet" id="new-conversation" type="button">+ New conversation</button>
+      </div>
+
+      <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions text">
+        <div class="empty-state" id="empty-state">
+          <span class="empty-mark">01</span>
+          <h3>Start with a test prompt</h3>
+          <p>Choose a case file or type a fictional scenario below.</p>
+        </div>
+      </div>
+
+      <form class="composer" id="chat-form">
+        <label class="visually-hidden" for="message-input">Message</label>
+        <textarea id="message-input" rows="2" maxlength="2000" placeholder="Ask a test question..." required></textarea>
+        <div class="composer-footer">
+          <span>Test content only <span class="separator">/</span> 2,000 character limit</span>
+          <button class="send-button" id="send-button" type="submit" aria-label="Send message" title="Send message">&#8593;</button>
+        </div>
+      </form>
+      <p class="inline-error" id="chat-error" role="alert" hidden></p>
+    </section>
+
+    <aside class="run-panel" aria-labelledby="run-heading">
+      <div class="panel-title">
+        <span class="eyebrow">03 / RUN SUMMARY</span>
+        <h2 id="run-heading">Evaluation</h2>
+      </div>
+      <div class="run-summary">
+        <span class="summary-value" id="pass-rate">--</span>
+        <span class="summary-label">latest pass rate</span>
+        <div class="summary-rule"><span id="pass-bar"></span></div>
+        <div class="summary-counts"><span><strong id="passed-count">0</strong> passed</span><span><strong id="failed-count">0</strong> failed</span></div>
+      </div>
+      <div class="run-detail" id="run-detail">
+        <p>No evaluation run yet.</p>
+        <p class="muted">Results use phrase checks. They are a smoke test, not a factuality score.</p>
+      </div>
+      <div class="run-warning" id="provider-warning" hidden></div>
+      <div class="run-cases" id="run-cases" aria-live="polite"></div>
+      <p class="results-path" id="results-path" hidden></p>
+    </aside>
+  </main>
+
+  <footer class="footer-bar">
+    <span>LOCAL TEST ENVIRONMENT</span>
+    <span id="footer-provider">Connecting...</span>
+    <span>NO EXTERNAL ACTIONS ENABLED</span>
+  </footer>
+</body>
+</html>

@@ -25,6 +25,8 @@ def main():
             DefaultAzureCredential(), "https://ai.azure.com/.default"
         )
 
+
+        # commenting for timepass
         
 
         openai_client = OpenAI(
